@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { UserIcon, ChevronDownIcon, MagnifyingGlassIcon, AdjustmentsVerticalIcon } from 'react-native-heroicons/outline'
 import Categoriess from '../components/Categoriess'
+import FeaturedRow from '../components/FeaturedRow'
 
 
 const HomeScreen = () => {
@@ -51,7 +52,23 @@ const HomeScreen = () => {
         <Categoriess></Categoriess>
 
         {/**Featured rows*/}
+        <FeaturedRow
+          title="Featured"
+          description="Paid placements from our partners"
+          id="123"
+        />
 
+        <FeaturedRow
+          title="Tasty Discounts"
+          description="Everyone's been using this juicy discounts!"
+          id="1234"
+        />
+
+        <FeaturedRow
+          title="Offers near you"
+          description="Why not support your local restaurent tonight!"
+          id="12345"
+        />
 
       </ScrollView>
 
