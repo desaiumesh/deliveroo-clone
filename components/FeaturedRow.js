@@ -42,18 +42,20 @@ const FeaturedRow = ({ id, title, description }) => {
                 showsHorizontalScrollIndicator={false}
             >
 
-                {restaurants?.map(restaurants => (<RestaurantCard
-                    key={restaurants._id}
-                    id={restaurants._id}
-                    imgUrl={restaurants.image}
-                    title={restaurants.name}
-                    rating={restaurants.rating}
-                    genre={restaurants.type?.name}
-                    address={restaurants.address}
-                    short_description={restaurants.short_description}
-                    dishes={restaurants.dishes}
-                    long={restaurants.long}
-                    lat={restaurants.lat} />))}
+                {
+                    restaurants?.map(restaurants => (
+                    <RestaurantCard
+                        key={restaurants._id}
+                        id={restaurants._id}
+                        imgUrl={restaurants.image}
+                        title={restaurants.name}
+                        rating={restaurants.rating}
+                        genre={restaurants.type?.name}
+                        address={restaurants.address}
+                        short_description={restaurants.short_description}
+                        dishes={restaurants.dishes}
+                        long={restaurants.long}
+                        lat={restaurants.lat} />))}
             </ScrollView>
         </View>
     )

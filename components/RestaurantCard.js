@@ -37,10 +37,7 @@ const RestaurantCard = ({
                 })
             }}
             className="bg-white mr-3 shadow">
-            <Image
-                source={{
-                    uri: urlFor(imgUrl).url()
-                }}
+            <Image source={{ uri: urlFor(imgUrl).url() }}
                 className="h-36 w-64 rounded-sm" />
             <View className="px-3 pb-4">
                 <Text className="font-bold pt-2 text-lg">{title}</Text>
