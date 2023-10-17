@@ -1,13 +1,15 @@
 import { View, Text, Image, TextInput, ScrollView } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { UserIcon, ChevronDownIcon, MagnifyingGlassIcon, AdjustmentsVerticalIcon } from 'react-native-heroicons/outline'
 import Categoriess from '../components/Categoriess'
-
+import FeaturedRow from '../components/FeaturedRow'
+import client from '../sanity'
 
 const HomeScreen = () => {
   const navigation = useNavigation();
+  const [featuredCategories, setfeaturedCategories] = useState([]);
 
   useLayoutEffect(() => {
 
@@ -17,8 +19,20 @@ const HomeScreen = () => {
 
   }, []);
 
+  useEffect(() => {
+
+    client.fetch(`*[_type=="featured"]{
+      ...,
+      restaurants[]->{
+        ...,
+        dishes[]->
+      }
+    }`).then(data => { setfeaturedCategories(data) });
+
+  }, []);
+
   return (
-    <SafeAreaView className="bg-white pt-5">
+    <SafeAreaView className="bg-white pt-5 pb-20">
 
       {/**Header */}
       <View className="flex-row pb-3 items-center mx-4 space-x-3">
@@ -51,8 +65,16 @@ const HomeScreen = () => {
         <Categoriess></Categoriess>
 
         {/**Featured rows*/}
-
-
+        {
+          featuredCategories?.map(category1 => (
+            <FeaturedRow
+              key={category1._id}
+              id={category1._id}
+              title={category1.name}
+              description={category1.short_description}
+            />
+          ))
+        }
       </ScrollView>
 
     </SafeAreaView>
