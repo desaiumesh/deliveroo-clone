@@ -6,6 +6,7 @@ import { selectRestaurant } from '../features/restaurantSlice';
 import { XMarkIcon } from 'react-native-heroicons/solid';
 import * as Progress from 'react-native-progress'
 import MapView, { Marker } from 'react-native-maps';
+import { PROVIDER_GOOGLE } from 'react-native-maps';
 
 const DeliveryScreen = () => {
     const navigation = useNavigation();
@@ -36,7 +37,7 @@ const DeliveryScreen = () => {
                     <Text className="text-gray-500 mt-3">Your order at {restaurant.title} is being prepared</Text>
                 </View>
             </SafeAreaView>
-            <MapView
+            <MapView provider={PROVIDER_GOOGLE}
                 initialRegion={{
                     latitude: restaurant.lat,
                     longitude: restaurant.long,
