@@ -20,13 +20,24 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff" ,
-        "package": "com.yourcompany.yourappname",
+        "backgroundColor": "#ffffff",
+        "package": "com.umeshd.deliverooclone",
         "versionCode": 1
+      },
+      "package": "com.umeshd.deliverooclone",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyA9X0LfMxtVVaYlaSEPheGiw_dB8KMMJN4"
+        }
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "115ffe6b-cf5b-41d5-888a-602347703580"
+      }
     }
   }
 }
